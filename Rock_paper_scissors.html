@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body style="text-align:center">
+ <h1>Rock Paper Scissors Game</h1>
+<div class='picker'>
+    <h1 style=font-size:50px>Pick One of these Three </h1>
+</div>
+<div>
+    <form id='game_option'>
+
+        <button type="button" onclick="single_round_of_Play(document.getElementById('Rockoption').value,computerPlay())" style="color:white;font-size:100px;background-color:blueviolet;float:left;margin-left:200px;margin-right:20px;" id="Rockoption"value="Rock">Rock</button>
+<button type="button" id='Paperoption' onclick="single_round_of_Play(document.getElementById('Paperoption').value,computerPlay())" style="color:white;font-size:100px;background-color:blueviolet;float:left;margin-left:150px;" value="Paper">Paper</button>
+<button type="button"id='Scissorsoption' onclick="single_round_of_Play(document.getElementById('Scissorsoption').value,computerPlay())" style="color: white;font-size:100px;background-color:blueviolet;float:left;margin-left:140px" value="Scissors">Scissors</button>
+</form>
+</div>
+<div ><h1 style="margin-top:200px;font-size:100px">Results</h1>
+    <br>
+    <h1 style="margin-top:40px;font-size:50px" id="Result-of-round"></h1>
+    <br>
+<h1 style="float: left;font-size: 50px;margin-left:400px;" >Computer:<span id="Computerscore">0</span></h1>
+<h1 style="float:left;font-size:50px;margin-left:100px">You: <span id="Yourscore">0</span></h1>
+</div>
+<script>
+    var Result_computer=0;
+    var Result_player=0;
+    var Result=parseInt(Result_computer)+parseInt(Result_computer);
+    function computerPlay(){
+    var options=['Rock','Paper','Scissors'];
+    return options[Math.floor(Math.random()*options.length)];
+}
+
+
+function single_round_of_Play(playerSelection,computerSelection){
+    if(Result>=5){
+      if(Result_computer>Result_player){
+          document.getElementById('Result-of-round').innerHTML=('Game over, you have lost the game , Reload the page for a new game');
+          return;
+      }
+      else if(Result_computer<Result_player){
+          document.getElementById('Result-of-round').innerHTML=('Congrulations, You\'ve won the game , Reload the page for a new game');
+
+      }
+      else{document.getElementById('Result-of-round').innerHTML=('Game over , it\'s a draw , Reload the page for a new game');
+      }
+        Result_computer=0;
+        Result_player=0;
+    
+    }
+    else{
+ if (playerSelection=='Rock'&&computerSelection=='Scissors'){
+ document.getElementById('Result-of-round').innerHTML=('you win');
+Result++;
+ Result_player++;
+ document.getElementById('Yourscore').innerHTML=Result_player;
+
+ 
+ }
+
+
+ else if(playerSelection=='Rock'&&computerSelection=='Paper'){
+    document.getElementById('Result-of-round').innerHTML=('The computer wins');
+    Result++;
+   Result_computer++;
+   document.getElementById('Computerscore').innerHTML=Result_computer;
+ }
+
+
+
+ else if(playerSelection=='Paper'&&computerSelection=='Rock'){
+    document.getElementById('Result-of-round').innerHTML=('You win');
+    Result++;
+    Result_player++;
+    document.getElementById('Yourscore').innerHTML=Result_player;  
+ }
+
+
+
+ else if(playerSelection=='Paper' && computerSelection=='Scissors'){
+    document.getElementById('Result-of-round').innerHTML=('The computer wins');
+    Result++;
+Result_computer++;
+document.getElementById('Computerscore').innerHTML=Result_computer;
+ }
+
+
+
+ else if(playerSelection=='Scissors' && computerSelection=='Paper'){
+    document.getElementById('Result-of-round').innerHTML=('You win!');
+    Result++;
+    Result_player++;
+    document.getElementById('Yourscore').innerHTML=Result_player;
+ }
+
+
+
+ else if(playerSelection=='Scissors' && computerSelection=='Rock'){
+    document.getElementById('Result-of-round').innerHTML=('The computer wins!');
+    Result++;
+    Result_computer++;
+    document.getElementById('Computerscore').innerHTML=Result_computer;
+ }
+
+
+
+
+ else{document.getElementById('Result-of-round').innerHTML=('It\'s a draw! Congrulations')}
+}}
+
+
+function game(firstparameter,secondparameter){
+    
+    
+}
+</script>
+</body>
+</html>
